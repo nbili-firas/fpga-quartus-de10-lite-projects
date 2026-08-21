@@ -86,6 +86,8 @@ Project-001/
 ├── Screenshots/
 └── Hardware/
 
+---
+
 Project Categories
 
 Projects may include topics such as:
@@ -103,6 +105,8 @@ State Machines
 Digital Displays
 FPGA I/O Control
 About This Portfolio
+
+---
 
 The purpose of this repository is to document my FPGA and digital-design experience and provide practical evidence of the engineering skills developed through university laboratory work.
 
