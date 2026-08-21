@@ -78,9 +78,9 @@ Each project contains documentation for:
 
 ---
 
-##Project Categories
+## Project Categories
 
-#Projects may include topics such as:
+# Projects may include topics such as:
 
 Logic Gate Design
 Boolean Logic
