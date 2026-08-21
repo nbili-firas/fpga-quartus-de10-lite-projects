@@ -78,23 +78,24 @@ Each project contains documentation for:
 
 ---
 
-# Project Categories
+## Project Categories
 
-## Projects may include topics such as:
+Projects may include topics such as:
 
-Logic Gate Design
-Boolean Logic
-Multiplexers
-Decoders
-Encoders
-Adders
-Flip-Flops
-Counters
-Registers
-State Machines
-Digital Displays
-FPGA I/O Control
-About This Portfolio
+- Logic Gate Design
+- Boolean Logic
+- Multiplexers
+- Decoders
+- Encoders
+- Adders
+- Flip-Flops
+- Counters
+- Registers
+- State Machines
+- Digital Displays
+- FPGA I/O Control
+- 
+  # About This Portfolio
 
 The purpose of this repository is to document my FPGA and digital-design experience and provide practical evidence of the engineering skills developed through university laboratory work.
 
