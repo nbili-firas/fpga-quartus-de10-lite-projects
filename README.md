@@ -76,6 +76,8 @@ Each project contains documentation for:
 - Screenshots
 - Skills demonstrated
 
+---
+
 Example structure:
 
 ```text
