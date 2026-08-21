@@ -78,18 +78,6 @@ Each project contains documentation for:
 
 ---
 
-Example structure:
-
-```
-Project-001/
-│
-├── README.md
-├── Quartus/
-├── Screenshots/
-└── Hardware/
-
----
-
 Project Categories
 
 Projects may include topics such as:
