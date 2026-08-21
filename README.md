@@ -96,8 +96,6 @@ Digital Displays
 FPGA I/O Control
 About This Portfolio
 
----
-
 The purpose of this repository is to document my FPGA and digital-design experience and provide practical evidence of the engineering skills developed through university laboratory work.
 
 Each project demonstrates the process of moving from a digital-design requirement to a working implementation on FPGA hardware. 
