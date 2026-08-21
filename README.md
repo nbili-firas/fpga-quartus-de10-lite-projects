@@ -80,8 +80,7 @@ Each project contains documentation for:
 
 Example structure:
 
----
-```text
+```
 Project-001/
 │
 ├── README.md
