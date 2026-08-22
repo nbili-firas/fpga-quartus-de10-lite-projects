@@ -1,6 +1,6 @@
 # Project 001 – DE10-Lite FPGA Hardware Implementation
 
-## Overview
+## Overview    
 
 This folder documents the physical hardware implementation and testing of the **FPGA 7-Segment Display Driver** developed in Project 001.
 
