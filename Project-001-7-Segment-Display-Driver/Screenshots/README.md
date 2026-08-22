@@ -1,6 +1,6 @@
 # Project 001 – FPGA 7-Segment Display Driver Screenshots
 
-## Overview
+## Overview   
 
 This folder contains screenshots documenting the design, simulation, pin assignment, compilation, and FPGA programming stages of **Project 001 – FPGA 7-Segment Display Driver Using VHDL**.
 
