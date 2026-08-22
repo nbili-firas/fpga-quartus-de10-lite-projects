@@ -2,9 +2,20 @@
 
 ## Overview
 
-This folder contains screenshots documenting the design, simulation, pin assignment, compilation, and FPGA programming stages of Project 001.
+This folder contains screenshots documenting the design, simulation, pin assignment, compilation, and FPGA programming stages of **Project 001 – FPGA 7-Segment Display Driver Using VHDL**.
 
-The screenshots provide visual evidence of the complete Quartus Prime Lite workflow used to implement the VHDL 7-segment display driver on the DE10-Lite FPGA Development Board.
+The screenshots provide visual evidence of the complete development workflow performed in **Intel Quartus Prime Lite**, from the top-level digital design through simulation and implementation on the **Terasic DE10-Lite FPGA Development Board**.
+
+The screenshots demonstrate:
+
+- Top-level FPGA schematic design
+- VHDL module integration
+- Waveform test configuration
+- Functional simulation
+- FPGA pin assignments
+- Device configuration
+- Compilation and implementation
+- USB-Blaster/JTAG programming
 
 ---
 
@@ -18,18 +29,18 @@ The screenshots provide visual evidence of the complete Quartus Prime Lite workf
 
 ## Description
 
-This screenshot shows the top-level Block Diagram/Schematic developed in Quartus Prime Lite.
+This screenshot shows the top-level **Block Diagram/Schematic** developed in Quartus Prime Lite.
 
-The design includes:
+The design contains:
 
-- `D[3..0]` 4-bit input
-- `EN` enable input
-- `SSD` display-driver symbol
-- `S[6..0]` 7-bit output
+- `D[3..0]` – 4-bit digital input
+- `EN` – Enable input
+- `SSD` – 7-segment display-driver module
+- `S[6..0]` – 7-bit segment-control output
 
-The `SSD` block represents the VHDL display-driver module generated as a Quartus symbol.
+The `SSD` block represents the VHDL display-driver module that was converted into a Quartus symbol and incorporated into the graphical top-level design.
 
-### Design Flow
+### Signal Flow
 
 ```text
 D[3..0] ─────┐
@@ -38,178 +49,402 @@ D[3..0] ─────┐
           ┌─────────┐
 EN ──────►│   SSD   │──────► S[6..0]
           └─────────┘
+```
+
+This stage demonstrates how the VHDL module was integrated into the complete FPGA design.
+
 ---
 
-Screenshot 2 – Waveform Test Setup
-File
+# Screenshot 2 – Waveform Test Setup
 
-Picture2.png
+## File
 
-Description
+`Picture2.png`
 
-This screenshot documents the Quartus waveform configuration used to test the 7-segment display driver.
+![Waveform Test Setup](Picture2.png)
 
-The simulation includes:
+## Description
 
+This screenshot shows the **Quartus waveform configuration** used to prepare the FPGA design for functional simulation.
+
+The waveform includes the principal design signals:
+
+- `D[3..0]`
+- `EN`
+- `S[6..0]`
+
+Different digital input conditions were configured across the simulation timeline.
+
+This allowed the 7-segment display-driver logic to be tested under multiple input conditions before programming the physical FPGA.
+
+### Simulation Process
+
+1. Add the design signals to the waveform.
+2. Configure the simulation time.
+3. Apply test values to `D[3..0]`.
+4. Configure the `EN` signal.
+5. Run the functional simulation.
+6. Observe the resulting `S[6..0]` output.
+
+---
+
+# Screenshot 3 – Functional Simulation Results
+
+## File
+
+`Picture3.png`
+
+![Functional Simulation Results](Picture3.png)
+
+## Description
+
+This screenshot shows the **functional simulation results** for the 7-segment display-driver design.
+
+The output bus:
+
+`S[6..0]`
+
+changes according to the values applied to:
+
+`D[3..0]`
+
+and the state of:
+
+`EN`
+
+The simulation was used to verify the digital logic before transferring the design to the physical DE10-Lite FPGA board.
+
+### Verification Flow
+
+```text
 D[3..0]
-EN
+   +
+  EN
+   |
+   v
+SSD VHDL Logic
+   |
+   v
 S[6..0]
+   |
+   v
+Waveform Verification
+```
 
-Different input values were applied across the simulation timeline so the corresponding output patterns could be evaluated.
+The simulation stage provided software-based verification of the VHDL design before hardware implementation.
 
-This stage was used to prepare the design for functional verification before hardware implementation.
+---
 
-Screenshot 3 – Functional Simulation Results
-File
+# Screenshot 4 – FPGA Pin Planner
 
-Picture3.png
+## File
 
-Description
+`Picture4.png`
 
-This screenshot shows the waveform simulation results for the FPGA display-driver design.
+![FPGA Pin Planner](Picture4.png)
 
-The output S[6..0] changes in response to the applied D[3..0] and EN input conditions.
+## Description
 
-The simulation was used to verify that the VHDL logic produced the expected segment-control patterns before programming the physical FPGA.
+This screenshot shows the **Quartus Prime Lite Pin Planner** used to connect the logical FPGA signals to physical pins on the DE10-Lite development board.
 
-Verification Process
-Apply a digital input value.
-Set the enable condition.
-Run the simulation.
-Observe S[6..0].
-Compare the output with the expected 7-segment pattern.
-Screenshot 4 – Pin Planner
-File
+The logical signals include:
 
-Picture4.png
+- `D[3..0]`
+- `EN`
+- `S[6..0]`
 
-Description
+The pin assignments connect the FPGA design to physical board resources such as:
 
-This screenshot shows the Quartus Prime Lite Pin Planner used to connect the logical FPGA signals to physical pins on the DE10-Lite board.
+- On-board switches
+- Enable input
+- 7-segment display segments
 
-The pin-assignment stage maps the design to real hardware resources such as:
+This stage is essential because the VHDL design uses logical signal names, while the physical DE10-Lite board requires those signals to be mapped to specific FPGA pins.
 
-On-board switches
-Enable input
-7-segment display segment connections
+### Hardware Mapping Process
 
-Pin mapping is a critical step because it connects the logical HDL design with the physical FPGA package and development board.
+```text
+VHDL Signal
+     |
+     v
+Quartus Pin Planner
+     |
+     v
+MAX 10 FPGA Pin
+     |
+     v
+DE10-Lite Hardware
+     |
+     v
+Switch / 7-Segment Display
+```
 
-Screenshot 5 – Quartus Compilation / Device Configuration
-File
+The completed assignments are stored as part of the Quartus project configuration.
 
-Picture5.png
+---
 
-Description
+# Screenshot 5 – Quartus Implementation and Device Configuration
 
-This screenshot documents the Quartus project during the implementation and compilation stage.
+## File
 
-The project targets the Intel MAX 10 FPGA on the DE10-Lite board.
+`Picture5.png`
 
-The compilation stage processes the digital design and verifies:
+![Quartus Implementation and Device Configuration](Picture5.png)
 
-VHDL syntax
-Top-level connectivity
-Device configuration
-Pin assignments
-FPGA implementation requirements
+## Description
 
-Successful completion of this stage prepares the design for programming onto the physical FPGA.
+This screenshot documents the Quartus project during the FPGA implementation and device-configuration stage.
 
-Screenshot 6 – Quartus Programmer
-File
+The design targets the **Intel MAX 10 FPGA** installed on the Terasic DE10-Lite board.
 
-Picture6.png
+The configured FPGA device is:
 
-Description
+`10M50DAF484C6GES`
 
-This screenshot shows Quartus Programmer being used to transfer the compiled design to the DE10-Lite board.
+At this stage, Quartus processes the completed digital design and prepares it for implementation on the selected FPGA.
 
-The programming configuration includes:
+The compilation and implementation process verifies areas including:
 
-USB-Blaster hardware interface
-JTAG programming mode
-Intel MAX 10 FPGA target
+- VHDL syntax
+- Design hierarchy
+- Signal connectivity
+- FPGA device compatibility
+- Pin assignments
+- Logic implementation
+- Hardware resource utilization
+
+Successful completion of this stage prepares the FPGA design for programming.
+
+---
+
+# Screenshot 6 – Quartus Programmer and FPGA Programming
+
+## File
+
+`Picture6.png`
+
+![Quartus Programmer and FPGA Programming](Picture6.png)
+
+## Description
+
+This screenshot shows **Quartus Programmer** being used to transfer the compiled FPGA design to the DE10-Lite development board.
+
+The programming setup uses:
+
+- **Hardware Interface:** USB-Blaster
+- **Programming Mode:** JTAG
+- **Target Hardware:** Terasic DE10-Lite
+- **FPGA Family:** Intel MAX 10
+
+The USB-Blaster interface establishes communication between Quartus Prime Lite and the FPGA development board.
+
+The compiled FPGA configuration is then transferred to the MAX 10 FPGA.
 
 This stage represents the transition from software-based design and simulation to physical FPGA implementation.
 
-FPGA Development Workflow
+### Programming Flow
 
-The screenshots collectively document the following development process:
+```text
+Compiled FPGA Design
+        |
+        v
+Quartus Programmer
+        |
+        v
+USB-Blaster
+        |
+        v
+JTAG Interface
+        |
+        v
+Intel MAX 10 FPGA
+        |
+        v
+DE10-Lite Hardware
+```
 
+---
+
+# Complete FPGA Development Process
+
+The six screenshots collectively document the major stages of the FPGA development workflow used in this project.
+
+```text
 VHDL Development
+    SSD.vhd
        |
        v
-Quartus Symbol Generation
+Symbol Generation
+    SSD.bsf
        |
        v
-Top-Level Schematic
+Top-Level Design
+   Project3.bdf
        |
        v
-Waveform Test Setup
+Waveform Setup
+   Waveform.vwf
        |
        v
 Functional Simulation
        |
        v
-Pin Assignment
+Waveform Verification
        |
        v
-Compilation
+FPGA Pin Assignment
+       |
+       v
+Project Compilation
+       |
+       v
+Device Configuration
        |
        v
 Quartus Programmer
        |
        v
-DE10-Lite FPGA Hardware
-Screenshot Summary
-Screenshot	Demonstration
-Picture1.png	Top-level Quartus schematic
-Picture2.png	Waveform test setup
-Picture3.png	Functional simulation results
-Picture4.png	FPGA pin assignments
-Picture5.png	Compilation / device configuration stage
-Picture6.png	USB-Blaster / JTAG FPGA programming
-Skills Demonstrated
-
-The screenshots provide visual evidence of experience with:
-
-Quartus Prime Lite
-VHDL integration
-FPGA schematic design
-Block Diagram/Schematic Editor
-Simulation waveform development
-Functional verification
-Pin Planner
-FPGA pin assignments
-Compilation
-Quartus Programmer
-USB-Blaster
-JTAG
-DE10-Lite
+USB-Blaster / JTAG
+       |
+       v
 Intel MAX 10 FPGA
-Digital-system verification
-Hardware/software integration
-Related Project Files
+       |
+       v
+DE10-Lite Hardware Testing
+```
 
-Return to the main project page:
+---
 
-Project 001 Main README
+# Screenshot Summary
 
-View the Quartus source files:
+| Screenshot | Development Stage | Demonstration |
+|---|---|---|
+| `Picture1.png` | Design | Top-level Quartus Block Diagram/Schematic |
+| `Picture2.png` | Simulation Setup | Waveform test configuration |
+| `Picture3.png` | Verification | Functional simulation results |
+| `Picture4.png` | Hardware Configuration | FPGA Pin Planner and I/O assignments |
+| `Picture5.png` | Implementation | Quartus device configuration and implementation |
+| `Picture6.png` | Programming | USB-Blaster/JTAG FPGA programming |
 
-Quartus Source Files
+---
 
-View the hardware demonstration:
+# Design Signals
 
-DE10-Lite Hardware Demonstration
+The screenshots document the three primary signal groups used by the FPGA design.
 
-View supporting project documentation:
+| Signal | Direction | Width | Purpose |
+|---|---|---:|---|
+| `D[3..0]` | Input | 4 bits | Provides the digital value to the display driver |
+| `EN` | Input | 1 bit | Enables or disables the display-driver output |
+| `S[6..0]` | Output | 7 bits | Controls the seven segments of the display |
 
-Project Documentation
+---
 
-Purpose of This Folder
+# Testing and Verification
 
-This folder provides visual documentation of the FPGA development process used in Project 001.
+The screenshots provide evidence of both **software-level verification** and preparation for **hardware-level verification**.
 
-Together with the Quartus source files and DE10-Lite hardware demonstration, the screenshots show the progression from VHDL design to simulation, device configuration, FPGA programming, and physical implementation. 
+## Software Verification
+
+The waveform simulation was used to:
+
+1. Apply different digital input values.
+2. Control the enable signal.
+3. Observe the output bus.
+4. Verify the VHDL logic.
+5. Identify problems before hardware programming.
+
+## Hardware Implementation
+
+After simulation, the project progressed through:
+
+1. FPGA pin assignment.
+2. Device configuration.
+3. Project compilation.
+4. USB-Blaster connection.
+5. JTAG programming.
+6. Physical DE10-Lite testing.
+
+This structured process reduces the risk of implementing an unverified digital design directly on the FPGA.
+
+---
+
+# Skills Demonstrated
+
+## FPGA Design
+
+- FPGA Development
+- Digital Logic Design
+- VHDL Integration
+- 7-Segment Display Control
+- Combinational Logic
+- Digital Input/Output
+- FPGA I/O Mapping
+
+## Quartus Prime Lite
+
+- Block Diagram/Schematic Editor
+- Symbol Integration
+- Waveform Editor
+- Functional Simulation
+- Waveform Analysis
+- Pin Planner
+- FPGA Device Configuration
+- Compilation
+- Quartus Programmer
+
+## Hardware Implementation
+
+- Terasic DE10-Lite
+- Intel MAX 10 FPGA
+- Physical Pin Assignment
+- USB-Blaster
+- JTAG Programming
+- FPGA Programming
+- Hardware Testing
+
+## Engineering
+
+- Design Verification
+- Simulation
+- Testing and Validation
+- Troubleshooting
+- Hardware/Software Integration
+- Systematic Problem Solving
+- Technical Documentation
+
+---
+
+# Related Project Files
+
+## Main Project Documentation
+
+[Project 001 Main README](../README.md)
+
+## Quartus Source Files
+
+[Quartus Source Files](../Quartus/)
+
+The Quartus folder contains the VHDL source, top-level schematic, project configuration, simulation waveform, and other design files.
+
+## Hardware Demonstration
+
+[DE10-Lite Hardware Demonstration](../Hardware/)
+
+The Hardware folder contains the physical DE10-Lite board demonstration.
+
+## Project Documentation
+
+[Supporting Documentation](../Documentation/)
+
+The Documentation folder contains supporting laboratory documentation associated with the project.
+
+---
+
+# Purpose of This Folder
+
+This folder provides visual documentation of the complete FPGA development process used in Project 001.
+
+The screenshots demonstrate the progression from a digital design in Quartus Prime Lite through functional simulation, pin assignment, FPGA implementation, and hardware programming.
+
+Together with the Quartus source files and DE10-Lite hardware demonstration, these screenshots provide evidence of practical experience with **VHDL, FPGA development, simulation, digital-system verification, pin mapping, JTAG programming, and physical FPGA implementation**.
