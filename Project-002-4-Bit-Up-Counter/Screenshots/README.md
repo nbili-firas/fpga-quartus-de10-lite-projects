@@ -1,6 +1,6 @@
 # Project 002 – Development Screenshots
 
-## Overview
+## Overview   
 
 This folder contains screenshots documenting the development, simulation, compilation, pin assignment, and FPGA programming stages of **Project 002 – FPGA 4-Bit Up Counter**.
 
