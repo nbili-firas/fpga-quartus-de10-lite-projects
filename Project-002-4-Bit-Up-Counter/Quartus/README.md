@@ -1,6 +1,6 @@
 # Project 002 – Quartus Source Files
 
-## Overview
+## Overview  
 
 This folder contains the Intel Quartus Prime Lite source files used to design, simulate, configure, and implement the **Project 002 – FPGA 4-Bit Up Counter**.
 
