@@ -1,6 +1,6 @@
 # Project 002 – DE10-Lite Hardware Demonstration
 
-## Overview
+## Overview   
 
 This folder contains the physical hardware demonstration for **Project 002 – FPGA 4-Bit Up Counter**.
 
