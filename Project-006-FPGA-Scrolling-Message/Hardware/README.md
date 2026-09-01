@@ -1,6 +1,6 @@
 # Project 006 – DE10-Lite Scrolling Message Hardware Demonstration
 
-## Overview 
+## Overview       
 
 This folder contains the physical FPGA demonstration of **Project 006 – Scrolling Message on Six 7-Segment Displays**.
 
