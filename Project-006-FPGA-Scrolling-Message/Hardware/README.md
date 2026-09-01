@@ -24,13 +24,11 @@ The completed system scrolls a five-character message across all six on-board 7-
 
 ## File
 
-```text
-DE10-Lite-Scrolling-Message-Demo.mov
-```
+`DE10-Lite-Scrolling-Message-Demo.mp4`
 
 ## Watch the Demonstration
 
-[View DE10-Lite Scrolling Message Demo](DE10-Lite-Scrolling-Message-Demo.mov)
+[View DE10-Lite Scrolling Message Demo](DE10-Lite-Scrolling-Message-Demo.mp4)
 
 ---
 
