@@ -578,11 +578,9 @@ Target: Intel MAX 10 FPGA
 
 The completed scrolling-message system is demonstrated in:
 
-```text
-Hardware/DE10-Lite-Scrolling-Message-Demo.mov
-```
+`Hardware/DE10-Lite-Scrolling-Message-Demo.mp4`
 
-[View DE10-Lite Scrolling Message Demo](Hardware/DE10-Lite-Scrolling-Message-Demo.mov)
+[View DE10-Lite Scrolling Message Demo](Hardware/DE10-Lite-Scrolling-Message-Demo.mp4)
 
 The video provides physical evidence that the message scrolls across the six DE10-Lite 7-segment displays.
 
